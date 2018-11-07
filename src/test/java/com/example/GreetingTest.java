@@ -3,7 +3,9 @@ package com.example;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.io.PrintStream;
 import java.time.LocalTime;
@@ -20,6 +22,13 @@ public class GreetingTest {
     private LocalTime now;
 
     private Greeting greeting;
+    static PrintStream out;
+
+    @BeforeClass
+    public static void init() {
+        out = mock(PrintStream.class);
+        System.setOut(out);
+    }
 
     @Before
     public void setUp() throws Exception {
@@ -36,13 +45,34 @@ public class GreetingTest {
     //Comment Ignore while testing print method + uncomment Greeting.setNow()
     @Test
 //    @Ignore
-    public void print() {
-        PrintStream out = mock(PrintStream.class);
-        System.setOut(out);
+    public void printNight() {
         greeting.setNow(morning.minusHours(3));
-
         greeting.print();
         verify(out).println("Good night, World!");
+    }
+
+    @Test
+//    @Ignore
+    public void printMorning() {
+        greeting.setNow(morning.plusHours(1));
+        greeting.print();
+        verify(out).println("Good morning, World!");
+    }
+
+    @Test
+//    @Ignore
+    public void printDay() {
+        greeting.setNow(dayTime);
+        greeting.print();
+        verify(out).println("Good day, World!");
+    }
+
+    @Test
+//    @Ignore
+    public void printEvening() {
+        greeting.setNow(evening.plusHours(3));
+        greeting.print();
+        verify(out).println("Good evening, World!");
     }
 
     @Test
