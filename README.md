@@ -1,0 +1,1 @@
+# Greetings [![Build Status](https://travis-ci.com/vitalikmordak/Greetings.svg?branch=master)](https://travis-ci.com/vitalikmordak/Greetings) [![codecov](https://codecov.io/gh/vitalikmordak/Greetings/branch/master/graph/badge.svg)](https://codecov.io/gh/vitalikmordak/Greetings)
