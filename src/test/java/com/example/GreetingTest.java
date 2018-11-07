@@ -2,13 +2,12 @@ package com.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import java.io.PrintStream;
 import java.time.LocalTime;
+import java.util.ResourceBundle;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
@@ -21,19 +20,16 @@ public class GreetingTest {
     private LocalTime night = LocalTime.of(23, 0, 0);
     private LocalTime now;
 
-    private Greeting greeting;
-    static PrintStream out;
+    private static Greeting greeting;
+    private static PrintStream out;
+    private static ResourceBundle bundle;
 
     @BeforeClass
     public static void init() {
         out = mock(PrintStream.class);
         System.setOut(out);
-    }
-
-    @Before
-    public void setUp() throws Exception {
+        bundle = ResourceBundle.getBundle("greetings");
         greeting = new Greeting();
-
     }
 
     @Test
@@ -48,7 +44,7 @@ public class GreetingTest {
     public void printNight() {
         greeting.setNow(morning.minusHours(3));
         greeting.print();
-        verify(out).println("Good night, World!");
+        verify(out).println(bundle.getString("good_night"));
     }
 
     @Test
@@ -56,7 +52,7 @@ public class GreetingTest {
     public void printMorning() {
         greeting.setNow(morning.plusHours(1));
         greeting.print();
-        verify(out).println("Good morning, World!");
+        verify(out).println(bundle.getString("good_morning"));
     }
 
     @Test
@@ -64,7 +60,7 @@ public class GreetingTest {
     public void printDay() {
         greeting.setNow(dayTime);
         greeting.print();
-        verify(out).println("Good day, World!");
+        verify(out).println(bundle.getString("good_day"));
     }
 
     @Test
@@ -72,7 +68,7 @@ public class GreetingTest {
     public void printEvening() {
         greeting.setNow(evening.plusHours(3));
         greeting.print();
-        verify(out).println("Good evening, World!");
+        verify(out).println(bundle.getString("good_evening"));
     }
 
     @Test
