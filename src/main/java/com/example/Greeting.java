@@ -38,7 +38,6 @@ public class Greeting {
 
     // Check if time between range
     protected boolean between(LocalTime from, LocalTime to) {
-//        return (now.isAfter(from)) && now.isBefore(to);
         if (from.isAfter(to)) {
             // Return true if the time is after (or at) 'from', *or* it's before 'to'
             return now.compareTo(from) >= 0 ||
@@ -52,6 +51,7 @@ public class Greeting {
     // Uncomment only for Tests
     public void setNow(LocalTime now) {
         this.now = now;
+        logger.info("Set time " + now);
     }
 
     public LocalTime getNow() {
