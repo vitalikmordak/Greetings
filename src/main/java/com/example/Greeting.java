@@ -4,6 +4,7 @@ package com.example;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
@@ -28,12 +29,12 @@ public class Greeting {
     // method, which print greetings
     public void print() {
         if (between(MORNING, DAY_TIME))
-            System.out.println(bundle.getString("good_morning"));
+            System.out.println(toUTF8(bundle.getString("good_morning")));
         else if (between(DAY_TIME, EVENING))
-            System.out.println(bundle.getString("good_day"));
+            System.out.println(toUTF8(bundle.getString("good_day")));
         else if (between(EVENING, NIGHT))
-            System.out.println(bundle.getString("good_evening"));
-        else System.out.println(bundle.getString("good_night"));
+            System.out.println(toUTF8(bundle.getString("good_evening")));
+        else System.out.println(toUTF8(bundle.getString("good_night")));
     }
 
     // Check if time between range
@@ -56,5 +57,10 @@ public class Greeting {
 
     public LocalTime getNow() {
         return now;
+    }
+
+    //Set Charset to UTF-8
+    private String toUTF8(String s){
+        return new String(s.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
     }
 }
