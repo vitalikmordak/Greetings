@@ -1,8 +1,6 @@
-[INFO] 07.11.2018 [main] Greeting - Current locale: en_US
-[INFO] 07.11.2018 [main] Greeting - Set current time: 13:46:33.565
-[INFO] 07.11.2018 [main] Greeting - set time 22:00
-[INFO] 07.11.2018 [main] Greeting - set time 09:00
-[INFO] 07.11.2018 [main] Greeting - set time 03:00
-[INFO] 07.11.2018 [main] GreetingTest - Test message
-[INFO] 07.11.2018 [main] Greeting - set time 07:00
-[INFO] 07.11.2018 [main] Greeting - set time 04:47
+[INFO] 12.11.2018 [main] Greeting - Current locale: ru_RU
+[INFO] 12.11.2018 [main] Greeting - Set current time: 16:09:50.186
+[INFO] 12.11.2018 [main] Greeting - Set time 22:00
+[INFO] 12.11.2018 [main] Greeting - Set time 09:00
+[INFO] 12.11.2018 [main] Greeting - Set time 03:00
+[INFO] 12.11.2018 [main] Greeting - Set time 07:00
